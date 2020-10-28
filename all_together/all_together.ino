@@ -18,7 +18,7 @@ Adafruit_DCMotor *motor_r = AFMS.getMotor(1);
 int greenled_pin = 3;
 int redled_pin = 4;
 
-float distance_travelled = 0;
+static float distance_travelled = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -46,6 +46,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
+distance_travelled =+ distance_forward();
+
 digitalWrite(greenled_pin, LOW);
 digitalWrite(redled_pin, LOW);
 if (distance_travelled  < 10){
@@ -67,6 +69,7 @@ if (obstacle == 1) {
   
   //Detect colour
   bool ripe = LDR();
+
   
   //If red, pick up
   if (ripe == 1) {

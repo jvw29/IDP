@@ -11,7 +11,7 @@ bool lineSensor_Calibration = false;
 
 void line_follow(void) {
 
-if(lineSensor_Calibration == false){
+if(lineSensor_Calibration == 0){
 
   int initial_l = analogRead(sensor_l);
   int initial_c = analogRead(sensor_c);
@@ -51,7 +51,7 @@ else if (sensorvalue_l >= threshold_lh && sensorvalue_c <= threshold_cl && senso
 //  Serial.println("011 Turn right");
   }
 
-else if (sensorvalue_l >= threshold_lh && sensorvalue_c >= 950 && sensorvalue_r <= threshold_rl) {
+else if (sensorvalue_l >= threshold_lh && sensorvalue_c >= threshold_ch && sensorvalue_r <= threshold_rl) {
   
   motor_l->run(BACKWARD);
   motor_r->run(FORWARD);
@@ -67,7 +67,7 @@ else if (sensorvalue_l <= threshold_ll && sensorvalue_c <= threshold_cl && senso
 //  Serial.println("110 Turn left");
 }
 
-else if (sensorvalue_l <= threshold_ll && sensorvalue_c >= 950 && sensorvalue_r >= threshold_rh) {
+else if (sensorvalue_l <= threshold_ll && sensorvalue_c >= threshold_ch && sensorvalue_r >= threshold_rh) {
 
   motor_l->run(FORWARD);
   motor_r->run(BACKWARD);
