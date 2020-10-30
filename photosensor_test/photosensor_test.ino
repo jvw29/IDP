@@ -28,5 +28,5 @@ Serial.print("right sensor ");
 Serial.print(sensorvaluer);
 
 Serial.println();
-  delay(100);
+  delay(250);
 }

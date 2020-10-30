@@ -16,7 +16,7 @@ bool ultrasonic(void) {
 
   distance = duration*0.034/2;
 
-  if (distance > 250 || distance <= 10) {
+  if (distance > 30 || distance <= 10) {
 
     return true;
   }

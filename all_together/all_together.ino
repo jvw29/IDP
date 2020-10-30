@@ -20,6 +20,8 @@ int redled_pin = 4;
 
 static float distance_travelled = 0;
 
+bool lineSensor_Calibration = false;
+
 void setup() {
   // put your setup code here, to run once:
   AFMS.begin();
@@ -50,6 +52,7 @@ distance_travelled =+ distance_forward();
 
 digitalWrite(greenled_pin, LOW);
 digitalWrite(redled_pin, LOW);
+
 if (distance_travelled  < 10){
   
 }
@@ -57,60 +60,60 @@ if (distance_travelled  < 10){
 else if (10 <= distance_travelled <= 5000) {
 
 //Check if there is fruit within range
-bool obstacle = ultrasonic();
+  bool obstacle = ultrasonic();
 
 //If no obstacle is detected, follow the line
-if (obstacle == 0) {
+  if (obstacle == 0) {
 
   line_follow();
-}
+  }
 
-if (obstacle == 1) {
+  if (obstacle == 1) {
   
   //Detect colour
-  bool ripe = LDR();
+    bool ripe = LDR();
 
   
   //If red, pick up
-  if (ripe == 1) {
+    if (ripe == 1) {
 
-    motor_r->setSpeed(0);
-    motor_l->setSpeed(0);
+      motor_r->setSpeed(0);
+      motor_l->setSpeed(0);
 
-    digitalWrite(greenled_pin, HIGH);
+      digitalWrite(greenled_pin, HIGH);
 
-    delay(5000);
+      delay(5000);
 
-    digitalWrite(greenled_pin, LOW);
+      digitalWrite(greenled_pin, LOW);
 
-    pickup();
+      pickup();
     
-  }
+    }
   
   //If blue, move to avoid
-  if (ripe == 0) {
+    if (ripe == 0) {
 
-    motor_r->setSpeed(0);
-    motor_l->setSpeed(0);
+      motor_r->setSpeed(0);
+      motor_l->setSpeed(0);
 
-    digitalWrite(redled_pin, HIGH);
+      digitalWrite(redled_pin, HIGH);
 
-    delay(5000);
+      delay(5000);
 
-    digitalWrite(redled_pin, LOW);
+      digitalWrite(redled_pin, LOW);
     
-    motor_r->setSpeed(150);
-    motor_l->setSpeed(150);
+      motor_r->setSpeed(150);
+      motor_l->setSpeed(150);
 
-    motor_r->run(FORWARD);
-    motor_l->run(FORWARD);
+      motor_r->run(FORWARD);
+      motor_l->run(FORWARD);
 
-    delay(1000);
+      delay(1000);
 
-    avoid();
+      avoid();
+    }
   }
-}
-}
+ }
 
 else if (distance_travelled > 5000) {
 
