@@ -43,7 +43,7 @@ Serial.print(sensorvalue_r);
 
 Serial.println();*/
   
-if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
+if (sensorvalue_l >= 900 && sensorvalue_c <= 750 && sensorvalue_r >= 900) {
 
   motor_l->run(BACKWARD);
   motor_r->run(BACKWARD);
@@ -51,7 +51,7 @@ if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
 //  Serial.println("010 Straight");
 }
 
-else if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r <= 400) {
+else if (sensorvalue_l >= 900 && sensorvalue_c <= 750 && sensorvalue_r <= 750) {
 
   motor_l->run(BACKWARD);
   motor_r->run(FORWARD);
@@ -59,7 +59,7 @@ else if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r <= 400) {
 //  Serial.println("011 Turn right");
   }
 
-else if (sensorvalue_l >= 500 && sensorvalue_c >= 500 && sensorvalue_r <= 400) {
+else if (sensorvalue_l >= 900 && sensorvalue_c >= 900 && sensorvalue_r <= 750) {
   
   motor_l->run(BACKWARD);
   motor_r->run(FORWARD);
@@ -67,7 +67,7 @@ else if (sensorvalue_l >= 500 && sensorvalue_c >= 500 && sensorvalue_r <= 400) {
 //  Serial.println("001 Turn right");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
+else if (sensorvalue_l <= 750 && sensorvalue_c <= 750 && sensorvalue_r >= 900) {
 
   motor_l->run(FORWARD);
   motor_r->run(BACKWARD);
@@ -75,7 +75,7 @@ else if (sensorvalue_l <= 400 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
 //  Serial.println("110 Turn left");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c >= 500 && sensorvalue_r >= 500) {
+else if (sensorvalue_l <= 750 && sensorvalue_c >= 900 && sensorvalue_r >= 900) {
 
   motor_l->run(FORWARD);
   motor_r->run(BACKWARD);
@@ -83,7 +83,7 @@ else if (sensorvalue_l <= 400 && sensorvalue_c >= 500 && sensorvalue_r >= 500) {
 //  Serial.println("100 Turn left");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c <= 400 && sensorvalue_r <= 400) {
+else if (sensorvalue_l <= 750 && sensorvalue_c <= 750 && sensorvalue_r <= 750) {
 
   motor_l->run(BACKWARD);
   motor_r->run(FORWARD);

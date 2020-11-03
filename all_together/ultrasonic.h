@@ -16,6 +16,7 @@ bool ultrasonic(void) {
 
   distance = duration*0.034/2;
 
+  Serial.println(distance);
   if (distance > 30 || distance <= 10) {
 
     return true;

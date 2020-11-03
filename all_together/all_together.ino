@@ -48,19 +48,20 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-distance_travelled =+ distance_forward();
+//distance_travelled =+ distance_forward();
 
 digitalWrite(greenled_pin, LOW);
 digitalWrite(redled_pin, LOW);
 
-if (distance_travelled  < 10){
+//if (distance_travelled  < 10){
   
-}
+//}
 
-else if (10 <= distance_travelled <= 5000) {
+//else if (10 <= distance_travelled <= 5000) {
 
 //Check if there is fruit within range
   bool obstacle = ultrasonic();
+
 
 //If no obstacle is detected, follow the line
   if (obstacle == 0) {
@@ -68,7 +69,7 @@ else if (10 <= distance_travelled <= 5000) {
   line_follow();
   }
 
-  if (obstacle == 1) {
+  else if (obstacle == 1) {
   
   //Detect colour
     bool ripe = LDR();
@@ -86,7 +87,7 @@ else if (10 <= distance_travelled <= 5000) {
 
       digitalWrite(greenled_pin, LOW);
 
-      pickup();
+//      pickup();
     
     }
   
@@ -113,9 +114,9 @@ else if (10 <= distance_travelled <= 5000) {
       avoid();
     }
   }
- }
+// }
 
-else if (distance_travelled > 5000) {
+/*else if (distance_travelled > 5000) {
 
   bool container_reached = move_to_container();
 
@@ -127,5 +128,5 @@ else if (distance_travelled > 5000) {
 
     
   }
-}
+}*/
 }

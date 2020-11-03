@@ -63,6 +63,7 @@ int duration;
 
   distance = duration*0.034/2;
 
+//Serial.println(distance);
   sensorvalue_l = analogRead(sensor_l);
 sensorvalue_c = analogRead(sensor_c);
 sensorvalue_r = analogRead(sensor_r);
@@ -77,7 +78,7 @@ sensorvalue_r = analogRead(sensor_r);
 
 
 
-/*Serial.print("left sensor ");
+Serial.print("left sensor ");
 Serial.print(sensorvalue_l);
 
 Serial.print("centre sensor ");
@@ -86,7 +87,7 @@ Serial.print(sensorvalue_c);
 Serial.print("right sensor ");
 Serial.print(sensorvalue_r);
 
-Serial.println();*/
+Serial.println();
   
 if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
 
