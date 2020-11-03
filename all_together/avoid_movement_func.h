@@ -113,6 +113,8 @@ for (int i=0; i < 100000000; i++) {
 
   if (sensorvalue_l <= 900 || sensorvalue_c <= 900 || sensorvalue_r <= 900) {
 
+  delay(250);
+  
   motor_r->setSpeed(150);
   motor_l->setSpeed(150);
 

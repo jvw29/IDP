@@ -4,10 +4,10 @@ Servo servo;
 
 void door_open(void) {
 
-  for (int pos = 0; pos <= 180; pos++) {
+  for (int pos = 0; pos <= 120; pos++) {
 
       servo.write(pos);
-      delay(5); 
+      delay(15); 
   }
 
 
@@ -17,10 +17,10 @@ void door_open(void) {
 void door_close(void) {
 
   
-  for (int pos = 180; pos >= 0; pos--) {
+  for (int pos = 120; pos >= 0; pos--) {
 
       servo.write(pos);
-      delay(5); 
+      delay(15); 
   }
 
   return;

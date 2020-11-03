@@ -81,11 +81,11 @@ digitalWrite(redled_pin, LOW);
       motor_r->setSpeed(0);
       motor_l->setSpeed(0);
 
-      digitalWrite(greenled_pin, HIGH);
+      /*digitalWrite(greenled_pin, HIGH);
 
       delay(5000);
 
-      digitalWrite(greenled_pin, LOW);
+      digitalWrite(greenled_pin, LOW);*/
 
 //      pickup();
     
@@ -97,11 +97,11 @@ digitalWrite(redled_pin, LOW);
       motor_r->setSpeed(0);
       motor_l->setSpeed(0);
 
-      digitalWrite(redled_pin, HIGH);
+      /*digitalWrite(redled_pin, HIGH);
 
       delay(5000);
 
-      digitalWrite(redled_pin, LOW);
+      digitalWrite(redled_pin, LOW);*/
     
       motor_r->setSpeed(150);
       motor_l->setSpeed(150);
