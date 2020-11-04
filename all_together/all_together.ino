@@ -48,6 +48,16 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
+long starttime = millis();
+long endtime = starttime;
+
+while ((endtime - starttime) <=1000) // do this loop for up to 1000mS
+{
+// code here
+line_follow();
+endtime = millis();
+}
+
 servo.write(120);
 
 //distance_travelled =+ distance_forward();
