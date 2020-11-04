@@ -32,7 +32,7 @@ sensorvalue_l = analogRead(sensor_l);
 sensorvalue_c = analogRead(sensor_c);
 sensorvalue_r = analogRead(sensor_r);
 
-/*Serial.print("left sensor ");
+Serial.print("left sensor ");
 Serial.print(sensorvalue_l);
 
 Serial.print("centre sensor ");
@@ -41,7 +41,7 @@ Serial.print(sensorvalue_c);
 Serial.print("right sensor ");
 Serial.print(sensorvalue_r);
 
-Serial.println();*/
+Serial.println();
   
 if (sensorvalue_l >= 900 && sensorvalue_c <= 750 && sensorvalue_r >= 900) {
 
@@ -85,8 +85,8 @@ else if (sensorvalue_l <= 750 && sensorvalue_c >= 900 && sensorvalue_r >= 900) {
 
 else if (sensorvalue_l <= 750 && sensorvalue_c <= 750 && sensorvalue_r <= 750) {
 
-  motor_l->run(BACKWARD);
-  motor_r->run(FORWARD);
+  motor_l->run(FORWARD);
+  motor_r->run(BACKWARD);
 
 //  Serial.println("111 Turn right");
 }

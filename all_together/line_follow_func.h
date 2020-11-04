@@ -32,8 +32,19 @@ motor_r->setSpeed(150);
 sensorvalue_l = analogRead(sensor_l);
 sensorvalue_c = analogRead(sensor_c);
 sensorvalue_r = analogRead(sensor_r);
-  
-if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
+
+/*Serial.print("left sensor ");
+Serial.print(sensorvalue_l);
+
+Serial.print("centre sensor ");
+Serial.print(sensorvalue_c);
+
+Serial.print("right sensor ");
+Serial.print(sensorvalue_r);
+
+Serial.println();*/
+
+if (sensorvalue_l >= 900 && sensorvalue_c <= 800 && sensorvalue_r >= 900) {
 
   
 motor_l->setSpeed(150);
@@ -42,61 +53,69 @@ motor_r->setSpeed(150);
   motor_l->run(BACKWARD);
   motor_r->run(BACKWARD);
 
-//  Serial.println("010 Straight");
+  Serial.println("010 Straight");
 }
 
-else if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r <= 400) {
+else if (sensorvalue_l >= 900 && sensorvalue_c <= 800 && sensorvalue_r <= 800) {
 
 
-motor_l->setSpeed(150);
-motor_r->setSpeed(150);
+motor_l->setSpeed(200);
+motor_r->setSpeed(200);
   motor_l->run(BACKWARD);
   motor_r->run(FORWARD);
 
-//  Serial.println("011 Turn right");
+  Serial.println("011 Turn right");
   }
 
-else if (sensorvalue_l >= 500 && sensorvalue_c >= 500 && sensorvalue_r <= 400) {
+else if (sensorvalue_l >= 900 && sensorvalue_c >= 900 && sensorvalue_r <= 800) {
 
   
-motor_l->setSpeed(150);
-motor_r->setSpeed(150);
+motor_l->setSpeed(200);
+motor_r->setSpeed(200);
   motor_l->run(BACKWARD);
   motor_r->run(FORWARD);
 
-//  Serial.println("001 Turn right");
+  Serial.println("001 Turn right");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
+else if (sensorvalue_l <= 800 && sensorvalue_c <= 800 && sensorvalue_r >= 900) {
 
 
-motor_l->setSpeed(150);
-motor_r->setSpeed(150);
+motor_l->setSpeed(200);
+motor_r->setSpeed(200);
   motor_l->run(FORWARD);
   motor_r->run(BACKWARD);
 
-//  Serial.println("110 Turn left");
+  Serial.println("110 Turn left");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c >= 500 && sensorvalue_r >= 500) {
+else if (sensorvalue_l <= 800 && sensorvalue_c >= 900 && sensorvalue_r >= 900) {
 
 
-motor_l->setSpeed(150);
-motor_r->setSpeed(150);
+motor_l->setSpeed(200);
+motor_r->setSpeed(200);
   motor_l->run(FORWARD);
   motor_r->run(BACKWARD);
 
-//  Serial.println("100 Turn left");
+  Serial.println("100 Turn left");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c <= 400 && sensorvalue_r <= 400) {
+else if (sensorvalue_l <= 800 && sensorvalue_c <= 900 && sensorvalue_r <= 900) {
 
-motor_l->setSpeed(150);
-motor_r->setSpeed(150);
+motor_l->setSpeed(200);
+motor_r->setSpeed(200);
   motor_l->run(BACKWARD);
   motor_r->run(FORWARD);
 
-//  Serial.println("111 Turn right");
+  Serial.println("111 Turn right");
+}
+
+else if(sensorvalue_l <=800 && sensorvalue_c >=900 && sensorvalue_r <=800) {
+
+   motor_l->setSpeed(200);
+  motor_r->setSpeed(200);
+  motor_l->run(BACKWARD);
+  motor_r->run(FORWARD);  
 }
 else {
 
@@ -105,7 +124,7 @@ motor_r->setSpeed(150);
   motor_l->run(BACKWARD);
   motor_r->run(BACKWARD);
 
-//  Serial.println("nada");
+  Serial.println("nada");
 }
 return;
    }

@@ -1,5 +1,5 @@
-int trigPin = 10;
-int echoPin = 11;
+int trigPin = 11;
+int echoPin = 12;
 
 #include <Adafruit_MotorShield.h>
 #include "utility/Adafruit_MS_PWMServoDriver.h"
@@ -63,13 +63,14 @@ int duration;
 
   distance = duration*0.034/2;
 
-//Serial.println(distance);
-  sensorvalue_l = analogRead(sensor_l);
+Serial.println(distance);
+  /*sensorvalue_l = analogRead(sensor_l);
 sensorvalue_c = analogRead(sensor_c);
-sensorvalue_r = analogRead(sensor_r);
+sensorvalue_r = analogRead(sensor_r);*/
 
-  if (distance > 30 || distance <= 15) {
+  if (1 <= distance && distance <= 15) {
 
+    Serial.println("in avoid");
     avoid();    
   }
 
@@ -78,18 +79,18 @@ sensorvalue_r = analogRead(sensor_r);
 
 
 
-Serial.print("left sensor ");
+/*Serial.print("left sensor ");
 Serial.print(sensorvalue_l);
 
 Serial.print("centre sensor ");
 Serial.print(sensorvalue_c);
 
 Serial.print("right sensor ");
-Serial.print(sensorvalue_r);
+Serial.print(sensorvalue_r);*/
 
 Serial.println();
   
-if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
+if (sensorvalue_l >= 900 && sensorvalue_c <= 600 && sensorvalue_r >= 900) {
 
   
 motor_l->setSpeed(150);
@@ -101,7 +102,7 @@ motor_r->setSpeed(150);
 //  Serial.println("010 Straight");
 }
 
-else if (sensorvalue_l >= 500 && sensorvalue_c <= 400 && sensorvalue_r <= 400) {
+else if (sensorvalue_l >= 900 && sensorvalue_c <= 600 && sensorvalue_r <= 900) {
 
 
 motor_l->setSpeed(150);
@@ -112,7 +113,7 @@ motor_r->setSpeed(150);
 //  Serial.println("011 Turn right");
   }
 
-else if (sensorvalue_l >= 500 && sensorvalue_c >= 500 && sensorvalue_r <= 400) {
+else if (sensorvalue_l >= 900 && sensorvalue_c >= 900 && sensorvalue_r <= 600) {
 
   
 motor_l->setSpeed(150);
@@ -123,7 +124,7 @@ motor_r->setSpeed(150);
 //  Serial.println("001 Turn right");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c <= 400 && sensorvalue_r >= 500) {
+else if (sensorvalue_l <= 600 && sensorvalue_c <= 600 && sensorvalue_r >= 900) {
 
 
 motor_l->setSpeed(150);
@@ -134,7 +135,7 @@ motor_r->setSpeed(150);
 //  Serial.println("110 Turn left");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c >= 500 && sensorvalue_r >= 500) {
+else if (sensorvalue_l <= 600 && sensorvalue_c >= 900 && sensorvalue_r >= 900) {
 
 
 motor_l->setSpeed(150);
@@ -145,7 +146,7 @@ motor_r->setSpeed(150);
 //  Serial.println("100 Turn left");
 }
 
-else if (sensorvalue_l <= 400 && sensorvalue_c <= 400 && sensorvalue_r <= 400) {
+else if (sensorvalue_l <= 600 && sensorvalue_c <= 600 && sensorvalue_r <= 600) {
 
 motor_l->setSpeed(150);
 motor_r->setSpeed(150);

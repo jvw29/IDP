@@ -45,7 +45,7 @@ degree = 0;
      
      IMU.readGyroscope(x, y, z);
 
-     z = z + 2.1;
+     z = z +1.8;
      degree = degree+(z/104);
 
      Serial.println(degree);

@@ -48,6 +48,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
+servo.write(120);
+
 //distance_travelled =+ distance_forward();
 
 digitalWrite(greenled_pin, LOW);
@@ -61,8 +63,8 @@ digitalWrite(redled_pin, LOW);
 
 //Check if there is fruit within range
   bool obstacle = ultrasonic();
-
-
+  
+  
 //If no obstacle is detected, follow the line
   if (obstacle == 0) {
 
@@ -81,18 +83,19 @@ digitalWrite(redled_pin, LOW);
       motor_r->setSpeed(0);
       motor_l->setSpeed(0);
 
+//      delay(5000);
       /*digitalWrite(greenled_pin, HIGH);
 
       delay(5000);
 
       digitalWrite(greenled_pin, LOW);*/
 
-//      pickup();
+      pickup();
     
     }
   
   //If blue, move to avoid
-    if (ripe == 0) {
+    else if (ripe == 0) {
 
       motor_r->setSpeed(0);
       motor_l->setSpeed(0);

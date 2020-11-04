@@ -1,11 +1,13 @@
-int trigPin = 10;
-int echoPin = 11;
+int trigPin = 13;
+int echoPin = 12;
 
 bool ultrasonic(void) {
-
+  int sum = 0;
   int duration;
   int distance;
-  
+  float mean = 0;
+
+  for (int i =0; i<=3; i++) {
   digitalWrite(trigPin, LOW);
 
   digitalWrite(trigPin, HIGH);
@@ -16,8 +18,15 @@ bool ultrasonic(void) {
 
   distance = duration*0.034/2;
 
-  Serial.println(distance);
-  if (distance > 30 || distance <= 10) {
+//  Serial.println(distance);
+
+  sum += distance;
+  }
+
+  mean = sum/4;
+
+  Serial.println(mean);
+  if (3 <= mean && mean <= 12) {
 
     return true;
   }

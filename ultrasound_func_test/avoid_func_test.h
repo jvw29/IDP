@@ -21,14 +21,14 @@ motor_l->run(FORWARD);
 
 
 //Left turn
-while (yaw <= 70) {
+while (yaw > -70) {
   //Serial.println(yaw);
   if (IMU.gyroscopeAvailable()) {
       IMU.readGyroscope(x, y, z);
 
   //Serial.println("turn left");
   //Serial.println(z);
-  z += 3.7;
+  z += 1.8;
   
   motor_r->setSpeed(150);
   motor_l->setSpeed(150);
@@ -37,7 +37,7 @@ while (yaw <= 70) {
 
   yaw += z/dt;
 
-  //Serial.println(yaw);
+//  Serial.println(yaw);
   
   }
 }
@@ -54,13 +54,13 @@ motor_r->run(BACKWARD);
 motor_l->run(BACKWARD);
 
 //Right turn 1
-while (yaw > 0) {
+while (yaw < 0) {
 
   //Serial.println("right1");
   if (IMU.gyroscopeAvailable()) {
       IMU.readGyroscope(x, y, z);
   
-  z += 3.7;
+  z += 1.8;
   
   /*Serial.print(x);
   Serial.print(y);
@@ -74,7 +74,7 @@ while (yaw > 0) {
 
   yaw += z/dt;
 
-  //Serial.println(yaw);
+//  Serial.println(yaw);
   }
 }
 
@@ -90,13 +90,13 @@ motor_r->run(BACKWARD);
 motor_l->run(BACKWARD);
 
 //Right turn 2
-while (yaw > -60) {
+while (yaw <= 60) {
 
   //Serial.println("right2");
   if (IMU.gyroscopeAvailable()) {
       IMU.readGyroscope(x, y, z);
   
-  z += 3.7;
+  z += 1.8;
   
   motor_r->setSpeed(150);
   motor_l->setSpeed(150);
@@ -106,7 +106,7 @@ while (yaw > -60) {
 
   yaw += z/dt;
 
-  //Serial.println(yaw);
+//  Serial.println(yaw);
   }
 }
 
